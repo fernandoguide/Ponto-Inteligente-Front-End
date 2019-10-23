@@ -1,11 +1,23 @@
 import { RouterModule } from '@angular/router';
-import { LogarComponent } from './components/logar.component';
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import {
+  MatInputModule,
+  MatButtonModule,
+  MatListModule,
+  MatTooltipModule,
+  MatIconModule,
+  MatSnackBarModule
+} from '@angular/material';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './components/login/login.component';
-
-
-
+import { LogarComponent } from './components/logar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +26,16 @@ import { LoginComponent } from './components/login/login.component';
     ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
+    MatTooltipModule,
+    MatIconModule,
+    MatSnackBarModule,
+    FlexLayoutModule
   ]
 })
 export class LoginModule { }
