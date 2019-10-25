@@ -1,3 +1,4 @@
+import { LoginService } from './services/login.service';
 import { RouterModule } from '@angular/router';
 
 import { NgModule } from '@angular/core';
@@ -40,6 +41,9 @@ import { LogarComponent } from './components/logar.component';
     MatListModule,
     MatRadioModule,
     FlexLayoutModule
+  ],
+  providers: [
+  	LoginService
   ]
 })
 export class LoginModule { }
