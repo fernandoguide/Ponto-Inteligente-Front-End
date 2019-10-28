@@ -6,12 +6,29 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTooltipModule, MatSnackBarModule, MatNativeDateModule, MatDatepickerModule, MatIconModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatListModule, } from '@angular/material';
-
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginComponent } from './components/login/login.component';
 import { LogarComponent } from './components/logar.component';
+// tslint:disable-next-line: max-line-length
+import {
+  MatTooltipModule,
+  MatSnackBarModule,
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCheckboxModule,
+  MatToolbarModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
+  MatListModule,
+} from '@angular/material';
+
+
+
 
 @NgModule({
   declarations: [
@@ -43,7 +60,7 @@ import { LogarComponent } from './components/logar.component';
     FlexLayoutModule
   ],
   providers: [
-  	LoginService
+    LoginService
   ]
 })
 export class LoginModule { }

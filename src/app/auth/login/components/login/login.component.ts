@@ -6,8 +6,6 @@ import { Login } from '../../models';
 import { LoginService } from '../../services/login.service';
 
 
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -58,6 +56,7 @@ export class LoginComponent implements OnInit {
 
           console.log(JSON.stringify(data)); // para analisar o retorno do servidor
 
+          // tslint:disable-next-line: no-string-literal
           localStorage['token'] = data['data']['token']; // armazena o token no localStorage
 
           const usuarioData = JSON.parse( // extraindo o perfil do usuario os dados ficam armazenados dentro do token JWT
@@ -78,10 +77,12 @@ export class LoginComponent implements OnInit {
           console.log(JSON.stringify(err));
 
           let msg: string = "Tente novamente em instantes.";
+          // tslint:disable-next-line: triple-equals
+          // tslint:disable-next-line: no-string-literal
           if (err['status'] == 401) {
-            msg = "Email/senha inválido(s)."
+            msg = 'Email/senha inválido(s).';
           }
-          this.snackBar.open(msg, "Erro", { duration: 3000 });
+          this.snackBar.open(msg, 'Erro', { duration: 3000 });
         }
       );
   }
