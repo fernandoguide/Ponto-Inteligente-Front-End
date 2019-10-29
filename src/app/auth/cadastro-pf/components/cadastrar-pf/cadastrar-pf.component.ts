@@ -4,7 +4,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CpfValidator } from 'src/app/shared/validators/cpf.validator';
 import { CnpjValidator } from 'src/app/shared/validators/cnpj.validator';
-import { CadastroPf } from './models/cadastro-pf.model';
+import { CadastroPf } from '../../models/cadastro-pf.model';
+import { CadastrarPfService } from '../../services/cadastrar-pf.service';
 
 @Component({
   selector: 'app-cadastrar-pf',
@@ -18,8 +19,8 @@ export class CadastrarPfComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private snackbar: MatSnackBar,
-    // private router: Router,
-    // private cadastrarPfService: CadastrarPfService
+    private router: Router,
+    private cadastrarPfService: CadastrarPfService
   ) { }
 
   ngOnInit() {
@@ -32,7 +33,7 @@ export class CadastrarPfComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(6)]],
       cpf: ['', [Validators.required, CpfValidator]],
-      // dataNascimento:['',Validators.required],
+      // dataNascimento: ['',Validators.required],
       cnpj: ['', [Validators.required, CnpjValidator]]
     });
   }
@@ -43,22 +44,23 @@ export class CadastrarPfComponent implements OnInit {
     // alert(JSON.stringify(this.form.value));
     // console.log(JSON.stringify(this.form.value));
     const cadastroPf: CadastroPf = this.form.value;
-    alert(JSON.stringify(cadastroPf));
-    // this.cadastrarPfService.cadastrar(cadastroPf)
-    //   .subscribe(
-    //     data => {
-    //       const msg: string = "Realize o login para acessar o sistema.";
-    //       this.snackBar.open(msg, "Sucesso", { duration: 5000 });
-    //       this.router.navigate(['/login']);
-    //     },
-    //     err => {
-    //       let msg: string = "Tente novamente em instantes.";
-    //       if (err.status == 400) {
-    //         msg = err.error.errors.join(' ');
-    //       }
-    //       this.snackBar.open(msg, "Erro", { duration: 5000 });
-    //     }
-    //   );
+    // alert(JSON.stringify(cadastroPf));
+    this.cadastrarPfService.cadastrar(cadastroPf)
+      .subscribe(
+        data => {
+          console.log(data);
+          const msg = 'Realize o login para acessar o sistema.';
+          this.snackbar.open(msg, 'Sucesso', { duration: 5000 });
+          this.router.navigate(['/login']);
+        },
+        err => {
+          let msg = 'Tente novamente em instantes.';
+          if (err.status === 400) {
+            msg = err.error.errors.join(' '); // pega a msg de erro vinda da api de backEnd
+          }
+          this.snackbar.open(msg, 'Erro', { duration: 5000 });
+        }
+      );
     return false;
   }
 
