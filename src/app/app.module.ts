@@ -19,6 +19,7 @@ import { CadastroPjRoutingModule } from './auth/cadastro-pj/cadastro-pj-routing.
 import { AppRoutingModule } from './app-routing.module';
 import { CadastroPfRoutingModule } from './auth/cadastro-pf/components/cadastro-pf-routing.module';
 import { FuncionarioModule } from './funcionario/funcionario.module';
+import { FuncionarioRoutingModule } from './funcionario/funcionario-routing.module';
 
 
 
@@ -39,6 +40,7 @@ import { FuncionarioModule } from './funcionario/funcionario.module';
     CadastroPfModule,
     CadastroPfRoutingModule,
     FuncionarioModule,
+    FuncionarioRoutingModule,
 
     AppRoutingModule,
   ],
