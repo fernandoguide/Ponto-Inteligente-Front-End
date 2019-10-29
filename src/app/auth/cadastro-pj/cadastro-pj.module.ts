@@ -1,3 +1,4 @@
+import { CadastroPjService } from './services/cadastro-pj.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -18,7 +19,7 @@ import {CadastrarPjComponent} from './components/cadastrar-pj/cadastrar-pj.compo
 import {CadastroPjComponent} from './components/cadastro-pj.components';
 import { SharedModule } from '../../shared/shared.module';
 
-// import { CadastrarPjService } from '../';
+
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { SharedModule } from '../../shared/shared.module';
     CadastroPjComponent
   ],
   providers: [
-    // CadastrarPjService
+    CadastroPjService
   ]
 })
 export class CadastroPjModule { }
