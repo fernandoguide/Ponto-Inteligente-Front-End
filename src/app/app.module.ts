@@ -1,3 +1,4 @@
+import { CadastroPfModule } from './auth/cadastro-pf/cadastro-pf.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     LoginRoutingModule,
     CadastroPjModule,
     CadastroPjRoutingModule,
+    CadastroPfModule,
 
 
     AppRoutingModule,
