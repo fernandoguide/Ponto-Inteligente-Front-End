@@ -1,7 +1,4 @@
 <div class="content">
-
-
-<!-- <div id="divCenter"> -->
   <form [formGroup]="form" fxLayoutAlign="center" novalidate>
     <mat-list>
       <mat-list-item>
@@ -18,30 +15,29 @@
             formControlName="senha"
           />
         </mat-form-field>
-        <span matTooltip="Senha deve conter ao menos 6 caracteres">
+        <span style="margin-left: 20px;" matTooltip="Senha deve conter ao menos 6 caracteres">
           <mat-icon>help</mat-icon>
         </span>
       </mat-list-item>
-      <mat-list-item fxLayoutAlign="center">
+      <mat-list-item  >
         <button
-          mat-raised-button
-          color="primary"
+        class="btn btn-success btn-sm btn-block"
           [disabled]="form.invalid"
           (click)="logar()"
         >
           Entrar
         </button>
+
       </mat-list-item>
-      <mat-list-item fxLayoutAlign="center">
-        <a mat-button color="primary"  routerLink="/cadastro-pf">
+      <mat-list-item >
+        <button class="btn btn-outline-info btn-sm"  routerLink="/cadastro-pf">
           Cadastrar PF
-        </a>
-        <a mat-button color="primary"  routerLink="/cadastro-pj">
+        </button>
+        <button class="btn btn-outline-info btn-sm" id="btnSpace" routerLink="/cadastro-pj">
           Cadastrar PJ
-        </a>
+        </button>
       </mat-list-item>
     </mat-list>
   </form>
-<!-- </div> -->
 </div>
 

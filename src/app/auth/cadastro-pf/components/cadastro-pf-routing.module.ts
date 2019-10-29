@@ -25,6 +25,7 @@ export const CadastroPfRoutes: Routes = [
     RouterModule
   ]
 })
+
 export class CadastroPfRoutingModule {
 }
 
