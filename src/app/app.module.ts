@@ -13,6 +13,7 @@ import { LoginRoutingModule } from './auth/login/login-routing.module';
 import { CadastroPjModule } from './auth/cadastro-pj/cadastro-pj.module';
 import { CadastroPjRoutingModule } from './auth/cadastro-pj/cadastro-pj-routing.module';
 import { AppRoutingModule } from './app-routing.module';
+import { CadastroPfRoutingModule } from './auth/cadastro-pf/components/cadastro-pf-routing.module';
 
 
 
@@ -29,6 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
     CadastroPjModule,
     CadastroPjRoutingModule,
     CadastroPfModule,
+    CadastroPfRoutingModule,
 
 
     AppRoutingModule,
