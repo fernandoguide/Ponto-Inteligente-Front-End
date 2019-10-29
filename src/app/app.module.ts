@@ -6,7 +6,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material';
+import {
+  MatToolbarModule,
+  MatIconModule
+} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { LoginModule } from './auth/login/login.module';
 import { LoginRoutingModule } from './auth/login/login-routing.module';
@@ -14,6 +18,7 @@ import { CadastroPjModule } from './auth/cadastro-pj/cadastro-pj.module';
 import { CadastroPjRoutingModule } from './auth/cadastro-pj/cadastro-pj-routing.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CadastroPfRoutingModule } from './auth/cadastro-pf/components/cadastro-pf-routing.module';
+import { FuncionarioModule } from './funcionario/funcionario.module';
 
 
 
@@ -24,14 +29,16 @@ import { CadastroPfRoutingModule } from './auth/cadastro-pf/components/cadastro-
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatButtonModule,
     LoginModule,
     LoginRoutingModule,
+    MatToolbarModule,
+    MatIconModule,
+    FlexLayoutModule,
     CadastroPjModule,
     CadastroPjRoutingModule,
     CadastroPfModule,
     CadastroPfRoutingModule,
-
+    FuncionarioModule,
 
     AppRoutingModule,
   ],

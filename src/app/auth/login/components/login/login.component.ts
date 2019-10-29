@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private snackBar: MatSnackBar,
-    // private router: Router,
+    private router: Router,
     private loginService: LoginService
   ) { }
 
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       .subscribe( // subscribe se divide em 2 blocos , o casso de sucesso e o casso de erro
         data => {
 
-          console.log(JSON.stringify(data)); // para analisar o retorno do servidor
+          // console.log(JSON.stringify(data)); // para analisar o retorno do servidor
 
           // tslint:disable-next-line: no-string-literal
           localStorage['token'] = data['data']['token']; // armazena o token no localStorage
@@ -62,24 +62,24 @@ export class LoginComponent implements OnInit {
           const usuarioData = JSON.parse( // extraindo o perfil do usuario os dados ficam armazenados dentro do token JWT
             atob(data['data']['token'].split('.')[1]));  // atob eh um decoder de base 64 que foi utilizado para decodificar
           // o token JWT para extrair  o perfil do usuario , usando o split('.') e [1] para pegar o primeiro paramentro
-          console.log(JSON.stringify(usuarioData)); // mostrando o perfil do usuario no console
+          // console.log(JSON.stringify(usuarioData)); // mostrando o perfil do usuario no console
 
           if (usuarioData['role'] == 'ROLE_ADMIN') {
-            alert('Deve Redirecionar para apagina de admin');
-            // this.router.navigate(['/admin']);
+            // alert('Deve Redirecionar para apagina de admin');
+            this.router.navigate(['/admin']);
 
           } else {
-            alert('Deve Redirecionar para apagina de funcionario');
-            // this.router.navigate(['/funcionario']);
+            // alert('Deve Redirecionar para apagina de funcionario');
+            this.router.navigate(['/funcionario']);
           }
         },
         err => {
-          console.log(JSON.stringify(err));
+          // console.log(JSON.stringify(err));
 
-          let msg: string = "Tente novamente em instantes.";
+          let msg: string = 'Tente novamente em instantes.';
           // tslint:disable-next-line: triple-equals
           // tslint:disable-next-line: no-string-literal
-          if (err['status'] == 401) {
+          if (err['status'] === 401) {
             msg = 'Email/senha inválido(s).';
           }
           this.snackBar.open(msg, 'Erro', { duration: 3000 });
